@@ -13,10 +13,8 @@ export default function Home() {
   const [userPhoto, setUserPhoto] = useState<string | null>(null);
 
   useEffect(() => {
-    // Ждем монтирования компонента
     setMounted(true);
 
-    // Получаем фото из Telegram SDK
     if (typeof window !== 'undefined' && (window as any).Telegram?.WebApp) {
       const tg = (window as any).Telegram.WebApp;
       tg.ready();
@@ -27,15 +25,11 @@ export default function Home() {
     }
   }, []);
 
-  // Предотвращаем гидратацию
+  // Ждем монтирования, чтобы избежать ошибок гидратации
   if (!mounted) return <div className="bg-black h-dvh" />;
 
-  // Если язык еще не выбран (проверка по контексту)
-  // Мы используем localStorage внутри Context, поэтому проверяем наличие lang
-  // Если у тебя в Context дефолтное значение 'en', используй доп. стейт или проверку
-  const hasSelectedLang = typeof window !== 'undefined' && localStorage.getItem('userLanguage');
-
-  if (!hasSelectedLang && !lang) {
+  // Если язык еще не выбран, показываем селектор
+  if (!lang) {
     return (
       <LanguageSelector 
         onSelect={(l) => { 
@@ -49,25 +43,23 @@ export default function Home() {
     <div className="flex flex-col h-dvh bg-black text-white overflow-hidden font-sans">
       {/* Контентная часть */}
       <div className="flex-1 overflow-y-auto pb-32 p-4">
-        {/* ВНИМАНИЕ: Здесь больше нет lang={lang}, ошибки TS исчезнут! */}
         {activeTab === 'main' && <MainScreen />}
         {activeTab === 'info' && <InfoScreen />}
         {activeTab === 'profile' && (
           <ProfileScreen 
             onLanguageChange={() => {
-              // Сбрасываем язык через контекст
-              setLang('');
-              localStorage.removeItem('userLanguage');
-              window.location.reload(); // Перезагрузка для чистого сброса
+              // Просто переключаем язык по кругу без перезагрузки страницы
+              const nextLang = lang === 'en' ? 'ru' : 'en';
+              setLang(nextLang);
             }} 
           />
         )}
       </div>
 
-      {/* Нижний Таб-бар: Прозрачный с блюром, без рамок и цвета */}
+      {/* Нижний Таб-бар */}
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 w-[85%] bg-transparent backdrop-blur-xl rounded-full flex justify-around items-center py-4 px-4 z-50">
         
-        {/* Кнопка Main (с твоим main.png) */}
+        {/* Кнопка Main */}
         <button 
           onClick={() => setActiveTab('main')} 
           className="transition-all active:scale-90"
@@ -79,7 +71,7 @@ export default function Home() {
           />
         </button>
         
-        {/* Кнопка Info (с твоим info.png) */}
+        {/* Кнопка Info */}
         <button 
           onClick={() => setActiveTab('info')} 
           className="transition-all active:scale-90"
@@ -91,7 +83,7 @@ export default function Home() {
           />
         </button>
 
-        {/* Кнопка Profile (Аватарка пользователя) */}
+        {/* Кнопка Profile */}
         <button 
           onClick={() => setActiveTab('profile')} 
           className="transition-all active:scale-90"
