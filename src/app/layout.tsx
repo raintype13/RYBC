@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+// Импортируем провайдер контекста
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My Telegram App",
+  title: "$RYBC App",
   description: "RYBC Community Mini App",
 };
 
@@ -24,7 +26,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // suppressHydrationWarning нужен, так как Telegram SDK меняет атрибуты тега html
     <html lang="en" suppressHydrationWarning>
       <head>
         <Script 
@@ -34,8 +35,12 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
+        suppressHydrationWarning
       >
-        {children}
+        {/* Оборачиваем все дочерние элементы в LanguageProvider */}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

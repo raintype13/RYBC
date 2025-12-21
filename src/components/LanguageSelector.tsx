@@ -1,22 +1,35 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { languages } from '@/constants/languages';
 
 interface Props {
-  onSelect: (lang: string) => void;
+  onSelect: (id: string) => void;
 }
 
 export default function LanguageSelector({ onSelect }: Props) {
-  // По умолчанию ставим английский или русский
-  const [selected, setSelected] = useState('ru');
+  // Устанавливаем английский по умолчанию, чтобы кнопка сразу была "Continue"
+  const [selected, setSelected] = useState('en');
+
+  // Словарь переводов для кнопки "Продолжить"
+  const buttonTranslations: Record<string, string> = {
+    en: "Continue",
+    ru: "Продолжить",
+    hi: "जारी रखें",
+    pt: "Continuar",
+    id: "Lanjutkan",
+    uz: "Davom etish",
+    kz: "Жалғастыру",
+    es: "Continuar",
+    tr: "Devam Et",
+    ar: "متابعة"
+  };
 
   return (
     <div className="flex flex-col h-dvh bg-black text-white p-6 justify-between font-sans">
-      <div className="flex flex-col items-center mt-4 w-full overflow-hidden">
+      <div className="flex flex-col items-center mt-4 w-full">
         <h1 className="text-xl font-bold mb-6">Choose your language</h1>
-        
-        {/* Контейнер со скроллом, если языков станет много */}
-        <div className="w-full bg-[#1c1c1e] rounded-2xl overflow-y-auto max-h-[60vh] custom-scrollbar">
+
+        <div className="w-full bg-[#1c1c1e] rounded-2xl overflow-y-auto max-h-[60vh] custom-scrollbar border border-gray-900">
           {languages.map((lang) => (
             <button
               key={lang.id}
@@ -36,14 +49,15 @@ export default function LanguageSelector({ onSelect }: Props) {
         </div>
       </div>
 
-      {/* Кнопка снизу */}
-      <div className="pb-4">
+      <div className="flex flex-col gap-4 items-center w-full mb-4">
+        {/* Кнопка теперь динамически меняет текст в зависимости от выбранного языка */}
         <button
           onClick={() => onSelect(selected)}
-          className="w-full bg-white text-black font-bold py-4 rounded-2xl text-[17px] active:scale-[0.98] transition-transform shadow-lg"
+          className="w-full bg-white text-black font-bold py-4 rounded-2xl text-lg active:scale-95 transition-transform"
         >
-          Продолжить
+          {buttonTranslations[selected] || "Continue"}
         </button>
+        <span className="text-gray-600 text-xs">@rybc_bot</span>
       </div>
     </div>
   );
