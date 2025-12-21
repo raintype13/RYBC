@@ -13,7 +13,15 @@ export const translations: Record<string, any> = {
     status: "Статус",
     confirmed: "ПОДТВЕРЖДЕНО",
     platform: "Платформа",
-    network: "Сеть"
+    network: "Сеть",
+    // Рефералы
+    ref_title: "Рефералы",
+    ref_subtitle: "Пригласи 3 друзей",
+    // Инфо-текст
+    info_p1: "$RYBC (RYB Coin) представляет собой стратегический мем-актив от криптографического сообщества RYB Community. Данный токен позиционируется как фундаментальный этап масштабного социального эксперимента, запуск которого запланирован на платформе pump.fun в 2026 году.",
+    info_p2: "На текущем этапе $RYBC выполняет роль экспериментальной платформы. Проект инициирован с целью консолидации аудитории и тестирования сетевой устойчивости перед выводом на рынок основного, более глобального актива сообщества.",
+    info_p3: "Весь накопленный опыт и лояльность участников первой волны станут ключевым преимуществом при переходе к следующей фазе развития экосистемы RYB. Это не просто цифровой актив, а инструмент для формирования закрытого круга единомышленников.",
+    info_p4: "Держатели $RYBC получают приоритетный статус и возможность участия в будущих разработках команды, что подтверждает долгосрочные намерения создателей."
   },
   en: {
     lang_name: "English",
@@ -29,7 +37,13 @@ export const translations: Record<string, any> = {
     status: "Status",
     confirmed: "CONFIRMED",
     platform: "Platform",
-    network: "Network"
+    network: "Network",
+    ref_title: "Referrals",
+    ref_subtitle: "Invite 3 friends",
+    info_p1: "$RYBC (RYB Coin) is a strategic meme asset from the RYB Community. This token is positioned as a fundamental stage of a large-scale social experiment, with a launch planned on the pump.fun platform in 2026.",
+    info_p2: "At the current stage, $RYBC acts as an experimental platform. The project was initiated to consolidate the audience and test network resilience before launching the community's main, more global asset.",
+    info_p3: "All accumulated experience and loyalty of the first-wave participants will be a key advantage when moving to the next phase of the RYB ecosystem development. This is not just a digital asset, but a tool for forming a closed circle of like-minded people.",
+    info_p4: "Holders of $RYBC receive priority status and the opportunity to participate in future team developments, which confirms the long-term intentions of the creators."
   },
   uz: {
     lang_name: "O'zbekcha",
@@ -45,7 +59,13 @@ export const translations: Record<string, any> = {
     status: "Holat",
     confirmed: "TASDIQLANDI",
     platform: "Platforma",
-    network: "Tarmoq"
+    network: "Tarmoq",
+    ref_title: "Referallar",
+    ref_subtitle: "3 do'stingizni taklif qiling",
+    info_p1: "$RYBC (RYB Coin) RYB Community kriptografik hamjamiyatining strategik mem-aktividir. Ushbu token 2026 yilda pump.fun platformasida ishga tushirilishi rejalashtirilgan keng ko'lamli ijtimoiy tajribaning fundamental bosqichi sifatida qaraladi.",
+    info_p2: "Hozirgi bosqichda $RYBC eksperimental platforma rolini o'ynaydi. Loyiha auditoriyani birlashtirish va hamjamiyatning asosiy, global aktivini bozorga chiqarishdan oldin tarmoq barqarorligini sinab ko'rish maqsadida boshlangan.",
+    info_p3: "Birinchi to'lqin ishtirokchilarining barcha to'plangan tajribasi va sodiqligi RYB ekotizimini rivojlantirishning keyingi bosqichiga o'tishda asosiy ustunlikka aylanadi.",
+    info_p4: "$RYBC egalari ustuvor maqomga va jamoaning kelajakdagi ishlanmalarida ishtirok etish imkoniyatiga ega bo'ladilar, bu esa yaratuvchilarning uzoq muddatli niyatlarini tasdiqlaydi."
   },
   kz: {
     lang_name: "Қазақша",
@@ -61,7 +81,13 @@ export const translations: Record<string, any> = {
     status: "Мәртебесі",
     confirmed: "РАСТАЛДЫ",
     platform: "Платформа",
-    network: "Желі"
+    network: "Желі",
+    ref_title: "Рефералдар",
+    ref_subtitle: "3 досыңды шақыр",
+    info_p1: "$RYBC (RYB Coin) — RYB Community криптографиялық қоғамдастығының стратегиялық мем-активі. Бұл токен 2026 жылы pump.fun платформасында іске қосылуы жоспарланған ауқымды әлеуметтік эксперименттің іргелі кезеңі ретінде қарастырылады.",
+    info_p2: "Қазіргі кезеңде $RYBC эксперименталды платформа рөлін атқарады. Жоба аудиторияны біріктіру және қоғамдастықтың негізгі, жаһандық активін нарыққа шығар алдында желінің тұрақтылығын сынау мақсатында басталған.",
+    info_p3: "Бірінші толқын қатысушыларының жинақталған тәжірибесі мен адалдығы RYB экожүйесін дамытудың келесі кезеңіне өткенде басты артықшылыққа айналады.",
+    info_p4: "$RYBC иеленушілері басым мәртебеге және команданың болашақ жобаларына қатысу мүмкіндігіне ие болады, бұл құрылтайшылардың ұзақ мерзімді ниеттерін растайды."
   },
   hi: {
     lang_name: "हिन्दी",
@@ -77,6 +103,12 @@ export const translations: Record<string, any> = {
     status: "स्थिति",
     confirmed: "पुष्टि की गई",
     platform: "प्लेटफार्म",
-    network: "नेटवर्क"
+    network: "नेटवर्क",
+    ref_title: "रेफरल",
+    ref_subtitle: "3 मित्रों को आमंत्रित करें",
+    info_p1: "$RYBC (RYB Coin) RYB कम्युनिटी का एक रणनीतिक मेम एसेट है। इस टोकन को एक बड़े पैमाने के सामाजिक प्रयोग के मौलिक चरण के रूप में देखा जाता है, जिसे 2026 में pump.fun प्लेटफॉर्म पर लॉन्च करने की योजना है।",
+    info_p2: "वर्तमान चरण में, $RYBC एक प्रयोगात्मक मंच के रूप में कार्य करता है। परियोजना को दर्शकों को एकजुट करने और मुख्य संपत्ति लॉन्च करने से पहले नेटवर्क लचीलेपन का परीक्षण करने के लिए शुरू किया गया था।",
+    info_p3: "पहली लहर के प्रतिभागियों का अनुभव और वफादारी RYB पारिस्थितिकी तंत्र के विकास के अगले चरण में एक प्रमुख लाभ होगा।",
+    info_p4: "$RYBC धारकों को प्राथमिकता का दर्जा और भविष्य के विकास में भाग लेने का अवसर मिलता है, जो रचनाकारों के दीर्घकालिक इरादों की पुष्टि करता है।"
   }
 };
