@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/constants/translations'; // Добавил импорт
 import LanguageSelector from '@/components/LanguageSelector';
 import MainScreen from '@/components/MainScreen';
 import InfoScreen from '@/components/InfoScreen';
@@ -25,10 +26,8 @@ export default function Home() {
     }
   }, []);
 
-  // Ждем монтирования, чтобы избежать ошибок гидратации
   if (!mounted) return <div className="bg-black h-dvh" />;
 
-  // Если язык еще не выбран, показываем селектор
   if (!lang) {
     return (
       <LanguageSelector 
@@ -41,29 +40,24 @@ export default function Home() {
 
   return (
     <div className="flex flex-col h-dvh bg-black text-white overflow-hidden font-sans">
-      {/* Контентная часть */}
       <div className="flex-1 overflow-y-auto pb-32 p-4">
         {activeTab === 'main' && <MainScreen />}
         {activeTab === 'info' && <InfoScreen />}
         {activeTab === 'profile' && (
           <ProfileScreen 
             onLanguageChange={() => {
-              // Просто переключаем язык по кругу без перезагрузки страницы
-              const nextLang = lang === 'en' ? 'ru' : 'en';
-              setLang(nextLang);
+              // Циклическое переключение всех языков из translations.ts
+              const languages = Object.keys(translations);
+              const currentIndex = languages.indexOf(lang);
+              const nextIndex = (currentIndex + 1) % languages.length;
+              setLang(languages[nextIndex]);
             }} 
           />
         )}
       </div>
 
-      {/* Нижний Таб-бар */}
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 w-[85%] bg-transparent backdrop-blur-xl rounded-full flex justify-around items-center py-4 px-4 z-50">
-        
-        {/* Кнопка Main */}
-        <button 
-          onClick={() => setActiveTab('main')} 
-          className="transition-all active:scale-90"
-        >
+        <button onClick={() => setActiveTab('main')} className="transition-all active:scale-90">
           <img 
             src="/main.png" 
             alt="Main" 
@@ -71,11 +65,7 @@ export default function Home() {
           />
         </button>
         
-        {/* Кнопка Info */}
-        <button 
-          onClick={() => setActiveTab('info')} 
-          className="transition-all active:scale-90"
-        >
+        <button onClick={() => setActiveTab('info')} className="transition-all active:scale-90">
           <img 
             src="/info.png" 
             alt="Info" 
@@ -83,11 +73,7 @@ export default function Home() {
           />
         </button>
 
-        {/* Кнопка Profile */}
-        <button 
-          onClick={() => setActiveTab('profile')} 
-          className="transition-all active:scale-90"
-        >
+        <button onClick={() => setActiveTab('profile')} className="transition-all active:scale-90">
           <div className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all duration-300 ${
             activeTab === 'profile' ? 'border-white opacity-100' : 'border-transparent opacity-40'
           }`}>
