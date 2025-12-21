@@ -15,9 +15,9 @@ export default function MainScreen() {
     { name: 'RYB Community', link: 'https://t.me/RYB_Community' },
     { name: 'RYB Chat', link: 'https://t.me/RYB_Chatik' },
     { name: 'X (Twitter)', link: 'https://x.com/RYB_Community' },
-    { name: 'TikTok', link: 'https://www.tiktok.com/@ryb_community' },
-    { name: 'Instagram', link: 'https://www.instagram.com/ryb.community/' },
-    { name: 'YouTube', link: 'https://www.youtube.com/@RYBCommunity' },
+    { name: 'TikTok', link: 'https://tiktok.com/@ryb_community' },
+    { name: 'Instagram', link: 'https://instagram.com/ryb.community/' },
+    { name: 'YouTube', link: 'https://youtube.com/@RYBCommunity' },
   ];
 
   // Функция для открытия ссылок в Telegram
@@ -109,7 +109,7 @@ export default function MainScreen() {
           <SwiperSlide className="flex flex-col items-center justify-center p-6 text-center">
             <div className="flex flex-col items-center gap-2">
               <div className="flex items-center gap-4 mb-2">
-                <img src="/info.png" alt="Logo" className="w-16 h-16 object-contain" />
+                <img src="/memecoin.png" alt="Logo" className="w-16 h-16 object-contain" />
                 <div className="flex flex-col items-start text-left">
                   <span className="text-2xl font-black tracking-tighter text-white leading-none">$RYBC</span>
                   <span className="text-[11px] text-gray-500 uppercase tracking-widest font-bold mt-1">RYB Coin</span>
