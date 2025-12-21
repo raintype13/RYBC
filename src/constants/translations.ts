@@ -1,6 +1,6 @@
 export const translations: Record<string, any> = {
   ru: {
-    lang_name: "Russian (Русский)",
+    lang_name: "Русский",
     lang_label: "Язык",
     early_access_title: "Ранний доступ",
     no_access: "Вы не участвуете в \n раннем доступе.",
@@ -8,7 +8,12 @@ export const translations: Record<string, any> = {
     main_title: "До запуска токена $RYBC осталось",
     get_access: "Получить ранний доступ",
     check_btn: "ПРОВЕРИТЬ",
-    info_header: "Что такое $RYBC"
+    info_header: "Что такое $RYBC",
+    launch_date: "Дата запуска токена",
+    status: "Статус",
+    confirmed: "ПОДТВЕРЖДЕНО",
+    platform: "Платформа",
+    network: "Сеть"
   },
   en: {
     lang_name: "English",
@@ -19,6 +24,59 @@ export const translations: Record<string, any> = {
     main_title: "Time left until $RYBC launch",
     get_access: "Get early access",
     check_btn: "CHECK",
-    info_header: "What is $RYBC"
+    info_header: "What is $RYBC",
+    launch_date: "Token Launch Date",
+    status: "Status",
+    confirmed: "CONFIRMED",
+    platform: "Platform",
+    network: "Network"
+  },
+  uz: {
+    lang_name: "O'zbekcha",
+    lang_label: "Til",
+    early_access_title: "Erta kirish",
+    no_access: "Siz erta kirishda \n ishtirok etmaysiz.",
+    socials_title: "Biz ijtimoiy tarmoqlarda",
+    main_title: "$RYBC tokeni ishga tushishiga qoldi",
+    get_access: "Erta kirishni olish",
+    check_btn: "TEKSHIRISH",
+    info_header: "$RYBC nima o'zi",
+    launch_date: "Token ishga tushish sanasi",
+    status: "Holat",
+    confirmed: "TASDIQLANDI",
+    platform: "Platforma",
+    network: "Tarmoq"
+  },
+  kz: {
+    lang_name: "Қазақша",
+    lang_label: "Тіл",
+    early_access_title: "Ерте қолжетімділік",
+    no_access: "Сіз ерте қолжетімділікке \n қатыспайсыз.",
+    socials_title: "Біз әлеуметтік желілерде",
+    main_title: "$RYBC токені іске қосылғанға дейін",
+    get_access: "Ерте қолжетімділікті алу",
+    check_btn: "ТЕКСЕРУ",
+    info_header: "$RYBC деген не",
+    launch_date: "Токенді іске қосу күні",
+    status: "Мәртебесі",
+    confirmed: "РАСТАЛДЫ",
+    platform: "Платформа",
+    network: "Желі"
+  },
+  hi: {
+    lang_name: "हिन्दी",
+    lang_label: "भाषा",
+    early_access_title: "शीघ्र पहुंच",
+    no_access: "आप शीघ्र पहुंच में \n भाग नहीं ले रहे हैं।",
+    socials_title: "हमारे सोशल मीडिया",
+    main_title: "$RYBC लॉन्च होने में समय बचा है",
+    get_access: "शीघ्र पहुंच प्राप्त करें",
+    check_btn: "जांचें",
+    info_header: "$RYBC क्या है?",
+    launch_date: "टोकन लॉन्च की तारीख",
+    status: "स्थिति",
+    confirmed: "पुष्टि की गई",
+    platform: "प्लेटफार्म",
+    network: "नेटवर्क"
   }
 };
