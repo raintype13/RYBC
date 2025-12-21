@@ -12,13 +12,28 @@ export default function MainScreen() {
   const t = translations[lang] || translations['en'];
 
   const socials = [
-    { name: 'RYB Community', link: '#' },
-    { name: 'RYB Chat', link: '#' },
-    { name: 'X (Twitter)', link: '#' },
-    { name: 'TikTok', link: '#' },
-    { name: 'Instagram', link: '#' },
-    { name: 'YouTube', link: '#' },
+    { name: 'RYB Community', link: 'https://t.me/RYB_Community' },
+    { name: 'RYB Chat', link: 'https://t.me/RYB_Chatik' },
+    { name: 'X (Twitter)', link: 'https://x.com/RYB_Community' },
+    { name: 'TikTok', link: 'https://www.tiktok.com/@ryb_community' },
+    { name: 'Instagram', link: 'https://www.instagram.com/ryb.community/' },
+    { name: 'YouTube', link: 'https://www.youtube.com/@RYBCommunity' },
   ];
+
+  // Функция для открытия ссылок в Telegram
+  const handleOpenLink = (url: string) => {
+    const tg = (window as any).Telegram?.WebApp;
+    
+    if (tg) {
+      if (url.includes('t.me')) {
+        tg.openTelegramLink(url);
+      } else {
+        tg.openLink(url);
+      }
+    } else {
+      window.open(url, '_blank');
+    }
+  };
 
   return (
     <div className="flex flex-col gap-6 w-full animate-in fade-in duration-500">
@@ -133,7 +148,12 @@ export default function MainScreen() {
             <div key={social.name} className="flex flex-col">
               <div className="flex justify-between items-center py-4 px-1">
                 <span className="text-gray-200 font-semibold text-lg">{social.name}</span>
-                <button className="bg-white text-black px-6 py-1.5 rounded-full font-bold text-sm active:scale-95 transition-transform">GO</button>
+                <button 
+                  onClick={() => handleOpenLink(social.link)}
+                  className="bg-white text-black px-6 py-1.5 rounded-full font-bold text-sm active:scale-95 transition-transform"
+                >
+                  GO
+                </button>
               </div>
               <div className="h-px bg-gray-900/30 w-full" />
             </div>
