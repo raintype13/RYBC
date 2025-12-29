@@ -1,8 +1,12 @@
 import { Bot, InlineKeyboard, webhookCallback } from "grammy";
+const token = process.env.TELEGRAM_BOT_TOKEN;
 
-const token = "8381548594:AAGrglIXHQEoQEXHnIhkCdx3EbO6b-EUjMs";
+// Если токена нет, мы выдаем понятную ошибку, а не просто ломаем приложение
+if (!token) {
+  throw new Error("TELEGRAM_BOT_TOKEN is not defined in environment variables");
+}
+
 const bot = new Bot(token);
-
 // Ссылка на картинку (замени на прямую ссылку, если image.jpg лежит в public)
 const IMAGE_URL = "https://rybc.vercel.app/image.jpg"; 
 
