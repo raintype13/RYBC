@@ -9,11 +9,14 @@ type LanguageContextType = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<string>('en');
+  // ИСПРАВЛЕНО: Начальное значение — пустая строка, чтобы сработал экран выбора
+  const [lang, setLangState] = useState<string>('');
 
   useEffect(() => {
     const saved = localStorage.getItem('userLanguage');
-    if (saved) setLangState(saved);
+    if (saved) {
+      setLangState(saved);
+    }
   }, []);
 
   const setLang = (newLang: string) => {
